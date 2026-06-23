@@ -191,3 +191,9 @@
   border: 2px solid var(--background);
   cursor: grab;
 }
+
+/* Hide the "Edit with Lovable" badge injected at serve time on the published site. */
+#lovable-badge,
+a[href*="lovable.dev/projects"] {
+  display: none !important;
+}
