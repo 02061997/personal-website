@@ -192,8 +192,12 @@
   cursor: grab;
 }
 
-/* Hide the "Edit with Lovable" badge injected at serve time on the published site. */
-#lovable-badge,
-a[href*="lovable.dev/projects"] {
+/* Hide the "Edit with Lovable" badge injected at serve time on the published site.
+   Lovable injects `#lovable-badge { display:flex !important }` after our stylesheet,
+   so we need higher specificity (html body aside#…) to win the cascade. */
+html body aside#lovable-badge,
+html body #lovable-badge,
+html body #lovable-badge-cta,
+html body a[href*="lovable.dev/projects"] {
   display: none !important;
 }
